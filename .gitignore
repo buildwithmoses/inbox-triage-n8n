@@ -1,0 +1,16 @@
+# secrets
+.env
+.env.*
+!.env.example
+# instance-specific ids written by scripts/setup.mjs
+.n8n-local.json
+# n8n data dirs (if you run n8n with a bind mount instead of the named volume)
+n8n-data/
+.n8n/
+node_modules/
+*.log
+# scratch eval output; dated results are kept as proof
+evals/results/latest.json
+workflow/.import.json
+.pending-approval.json
+workflow/.test-build.json

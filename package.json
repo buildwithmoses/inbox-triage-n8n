@@ -1,0 +1,22 @@
+{
+  "name": "inbox-triage-code-vs-nocode",
+  "private": true,
+  "type": "module",
+  "description": "Saltmarsh Creative inbox triage, ported from a Trigger.dev task to an n8n workflow with human approval and evals.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "n8n:up": "docker compose up -d",
+    "n8n:down": "docker compose stop",
+    "build": "node scripts/build-workflow.mjs",
+    "build:naive": "node scripts/build-workflow.mjs --variant naive",
+    "setup": "node scripts/setup.mjs",
+    "setup:naive": "node scripts/setup.mjs --variant naive",
+    "test": "node --test tests/*.test.mjs",
+    "triage": "node scripts/approve.mjs run",
+    "approve": "node scripts/approve.mjs approve",
+    "reject": "node scripts/approve.mjs reject",
+    "outbox": "node scripts/approve.mjs outbox",
+    "evals": "node evals/run-evals.mjs --label candidate",
+    "gate": "node evals/gate.mjs"
+  }
+}

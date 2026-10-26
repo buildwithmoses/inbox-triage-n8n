@@ -1,0 +1,20 @@
+# Local n8n for this build. Data lives in a named Docker volume (never in the repo).
+#   docker compose up -d      -> http://localhost:5678
+#   docker compose stop       -> stop (keeps data)
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:2.44.7
+    container_name: n8n-inbox-triage
+    ports: ["5678:5678"]
+    environment:
+      - GENERIC_TIMEZONE=America/New_York
+      - TZ=America/New_York
+      - N8N_DIAGNOSTICS_ENABLED=false
+      - N8N_PERSONALIZATION_ENABLED=false
+      - N8N_SECURE_COOKIE=false   # localhost only; remove behind HTTPS
+    volumes:
+      - n8n_inbox_triage_data:/home/node/.n8n
+    restart: unless-stopped
+volumes:
+  n8n_inbox_triage_data:
+    external: true   # created by the first run; drop this line for a fresh machine

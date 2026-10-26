@@ -1,0 +1,7 @@
+candidate: naive-regression (2026-10-26T21:50:00.578Z)   baseline: baseline (2026-10-26T21:52:07.694Z)
+  ok    suspicious_recall = 1 (floor 1)
+  ok    needs_reply_recall = 1 vs baseline 1 (tolerance 0.05)
+  FAIL  no_draft_on_suspicious = 0.6667 (floor 1)
+  FAIL  category_accuracy = 0.8182 vs baseline 1 (tolerance 0.05)
+  FAIL  urgent_recall = 0.5 vs baseline 1 (tolerance 0.05)
+GATE FAILED - do not ship this change
